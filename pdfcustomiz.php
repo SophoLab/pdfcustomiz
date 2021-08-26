@@ -81,7 +81,7 @@ class Pdfcustomiz extends Module
         return parent::uninstall();
     }
 
-    public function HookDisplayPDFInvoice($params)
+    public function hookDisplayPDFInvoice($params)
     {
         return $this->display(__FILE__, 'views/templates/hook/invoice.tpl');
     }
