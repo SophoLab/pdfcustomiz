@@ -72,9 +72,6 @@ class Pdfcustomiz extends Module
     public function install()
     {
         return parent::install()
-            && $this->registerHook('actionPDFInvoiceRender')
-            && $this->registerHook('displayPDFDeliverySlip')
-            && $this->registerHook('displayPDFDeliverySlip')
             && $this->registerHook('displayPDFInvoice');
     }
 
@@ -84,25 +81,8 @@ class Pdfcustomiz extends Module
         return parent::uninstall();
     }
 
-    // public function HookActionPDFInvoiceRender($params)
-    // {
-    //     if ($module = Module::getInstanceByName('citylist')) {
-    //         dump($params);
-    //         dump($module);
-    //         die();
-    //     }
-    // }
-
-    public function HookDisplayPDFDeliverySlip($params)
-    {
-        return $this->HookDisplayPDFInvoice($params);
-    }
-
     public function HookDisplayPDFInvoice($params)
     {
-        // dump($params['object']->id_od);
-
-        // die();
         return $this->display(__FILE__, 'views/templates/hook/invoice.tpl');
     }
 }
